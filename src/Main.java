@@ -5,5 +5,6 @@ public class Main {
 
 //        Test test = new Test();
 //        test.testIsPrime();
+//        test.testGenerate();
     }
 }
