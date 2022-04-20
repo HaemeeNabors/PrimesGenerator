@@ -28,14 +28,29 @@ public class PrimeGenerator implements PrimeNumberGenerator {
         if(startingValue <= 1)
             startingValue =2;
 
-        //A segment of Sieve of Eratosthenes
-        //initial primes to compare segment to
-        //compare range/segment
+        //Create initialPrimes to start Sieve
+        ArrayList<Integer> initialPrimes = new ArrayList<>();
+        boolean[] initialComposites = new boolean[endingValue+1];
 
-        //add to primes
-        primes.add(-1);//remove-----
+        //set flags for composites/primes
+        for(int i=2;(i*i)<=endingValue;i++) {
+            if(!initialComposites[i]) {
+                for(int j=i*i;j<=Math.sqrt(endingValue);j=j+i)
+                    initialComposites[j]=true;
+            }
+        }
+        //Add Primes
+        for(int i=2;i*i<=endingValue;i++) {
+            if(!initialComposites[i])
+                initialPrimes.add(i);
+        }
+
+        for(var prime : initialPrimes)
+            System.out.println(prime);//TODO: Remove
+
         return primes;
     }
+
 
 
 }
