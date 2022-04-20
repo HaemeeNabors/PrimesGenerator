@@ -15,13 +15,13 @@ public class UpdoxPrimeGenerator {
     }
 
     /* Displays Prime Numbers */
-    public void displayPrimeNumbers(List<Integer> primes){
+    public void displayPrimeNumbers(List<Integer> primes) {
         System.out.println("Prime Numbers: ");
-        if(primes.isEmpty()) {
+        if (primes.isEmpty()) {
             System.out.println("No Prime numbers found.");
             return;
         }
-        for(var prime: primes)
+        for (var prime : primes)
             System.out.print(prime + " ");
         System.out.println();
     }
