@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,7 +9,6 @@ public class UpdoxPrimeGenerator {
         displayTitle();
 
         var range = getIntegerRange();
-        ascendRange(range);
 
         var primes = primeGenerator.generate(range[0], range[1]);
         displayPrimeNumbers(primes);
@@ -47,10 +45,5 @@ public class UpdoxPrimeGenerator {
         range[1] = scanner.nextInt();
 
         return range;
-    }
-
-    /* Sorts range to ascending (start - end) */
-    private void ascendRange(int[] range) {
-        Arrays.sort(range);
     }
 }
