@@ -24,7 +24,7 @@ public class UpdoxPrimeGenerator {
             return;
         }
         for(var prime: primes)
-            System.out.println(prime + " ");
+            System.out.print(prime + " ");
         System.out.println();
     }
 
