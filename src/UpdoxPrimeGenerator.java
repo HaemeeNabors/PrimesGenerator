@@ -1,49 +1,42 @@
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
-public class UpdoxPrimeGenerator implements PrimeNumberGenerator {
+public class UpdoxPrimeGenerator {
+    PrimeGenerator primeGenerator = new PrimeGenerator();
 
-    public void start(){
+    /* Initial Start */
+    public void start() {
         displayTitle();
 
-        int[] range = getRange();
+        var range = getIntegerRange();
         ascendRange(range);
 
-        generate(range[0], range[1]);
-    }
-
-    @Override
-    public boolean isPrime(int value) {
-        return false;
-    }
-
-    @Override
-    public List<Integer> generate(int startingValue, int endingValue) {
-        System.out.println(startingValue + " " + endingValue);
-        return null;
+        var primes = primeGenerator.generate(range[0], range[1]);
     }
 
     //implementation
-    private void displayTitle(){
+    /* Displays title and description */
+    private void displayTitle() {
         System.out.println("\n----------------Updox Prime Generator--------------");
         System.out.println("Displays ordered list of primes from entered range.");
         System.out.println("---------------------------------------------------\n");
     }
 
-    private int[] getRange(){
+    /* Retrieve Integer Range from user*/
+    private int[] getIntegerRange() {
         Scanner scanner = new Scanner(System.in);
         int[] range = new int[2];
 
-        System.out.println("Enter inclusive starting endpoint:");
+        System.out.println("Enter inclusive starting integer:");
         range[0] = scanner.nextInt();
-        System.out.println("Enter inclusive ending endpoint:");
+        System.out.println("Enter inclusive ending integer:");
         range[1] = scanner.nextInt();
 
         return range;
     }
 
-    private void ascendRange(int[] range){
+    /* Sorts range to ascending (start - end) */
+    private void ascendRange(int[] range) {
         Arrays.sort(range);
     }
 }
