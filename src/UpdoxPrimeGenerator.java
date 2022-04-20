@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class UpdoxPrimeGenerator {
@@ -12,6 +13,19 @@ public class UpdoxPrimeGenerator {
         ascendRange(range);
 
         var primes = primeGenerator.generate(range[0], range[1]);
+        displayPrimeNumbers(primes);
+    }
+
+    /* Displays Prime Numbers */
+    public void displayPrimeNumbers(List<Integer> primes){
+        System.out.println("Prime Numbers: ");
+        if(primes.isEmpty()) {
+            System.out.println("No Prime numbers found.");
+            return;
+        }
+        for(var prime: primes)
+            System.out.println(prime + " ");
+        System.out.println();
     }
 
     //implementation
