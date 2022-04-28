@@ -42,10 +42,20 @@ public class UpdoxPrimeGenerator {
         int[] range = new int[2];
 
         System.out.println("Enter inclusive starting integer:");
+        validateInteger(scanner);
         range[0] = scanner.nextInt();
+
         System.out.println("Enter inclusive ending integer:");
+        validateInteger(scanner);
         range[1] = scanner.nextInt();
 
         return range;
+    }
+
+    private void validateInteger(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            System.out.println("-Please enter an integer-");
+            scanner.next();
+        }
     }
 }
