@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class PrimeGenerator implements PrimeNumberGenerator {
         return true;
     }
 
-    /* Generates order list of primes numbers form an inclusive range using
+    /* Generates order list of primes numbers from an inclusive range using
      * Segment of Sieve of Eratothenes Algorithm*/
     @Override
     public List<Integer> generate(int startingValue, int endingValue) {
