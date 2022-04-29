@@ -92,4 +92,90 @@ class PrimeGeneratorTest {
         var expectedList = new ArrayList<>(Arrays.asList(7901, 7907, 7919));
         Assertions.assertEquals(expectedList, pg.generate(7900, 7920));
     }
+
+    //isDescending()
+    @Test
+    void isDescending_ShouldReturnFalse_WhenOneToFour(){
+        var pg = new PrimeGenerator();
+        Assertions.assertFalse(pg.isDescending(1, 4));
+    }
+    @Test
+    void isDescending_ShouldReturnFalse_WhenOneToOne(){
+        var pg = new PrimeGenerator();
+        Assertions.assertFalse(pg.isDescending(1, 1));
+    }
+    @Test
+    void isDescending_ShouldReturnTrue_WhenFourToOne(){
+        var pg = new PrimeGenerator();
+        Assertions.assertTrue(pg.isDescending(4, 1));
+    }
+
+    //isLessThanFirstPrime()
+    @Test
+    void isLessThanFirstPrime_ShouldReturnTrue_WhenZero(){
+        var pg = new PrimeGenerator();
+        Assertions.assertTrue(pg.isLessThanFirstPrime(0));
+    }
+
+    @Test
+    void isLessThanFirstPrime_ShouldReturnTrue_WhenOne(){
+        var pg = new PrimeGenerator();
+        Assertions.assertTrue(pg.isLessThanFirstPrime(1));
+    }
+
+    @Test
+    void isLessThanFirstPrime_ShouldReturnFalse_WhenTwo(){
+        var pg = new PrimeGenerator();
+        Assertions.assertFalse(pg.isLessThanFirstPrime(2));
+    }
+
+    @Test
+    void isLessThanFirstPrime_ShouldReturnFalse_WhenThree(){
+        var pg = new PrimeGenerator();
+        Assertions.assertFalse(pg.isLessThanFirstPrime(3));
+    }
+
+    //fillInitialPrimes()
+    @Test
+    void fillInitialPrimes_ShouldEmptyList_When3(){
+        var pg = new PrimeGenerator();
+        Assertions.assertTrue(pg.fillInitialPrimes(3).isEmpty());
+    }
+
+    @Test
+    void fillInitialPrimes_Should2_When4(){
+        var pg = new PrimeGenerator();
+        var expectedList = new ArrayList<Integer>();
+        expectedList.add(2);
+        for(var prime: expectedList)
+            Assertions.assertTrue(pg.isPrime(prime));
+        Assertions.assertEquals(expectedList, pg.fillInitialPrimes(4));
+    }
+
+    @Test
+    void fillInitialPrimes_ShouldReturn2_3_When10(){
+        var pg = new PrimeGenerator();
+        var expectedList = new ArrayList<>(Arrays.asList(2,3));
+        for(var prime: expectedList)
+            Assertions.assertTrue(pg.isPrime(prime));
+        Assertions.assertEquals(expectedList, pg.fillInitialPrimes(10));
+    }
+
+    //findNextMultipleOf()
+    @Test
+    void findNextMultipleOf_ShouldReturn4_When2_3(){
+        var pg = new PrimeGenerator();
+        Assertions.assertEquals(4,pg.findNextMultipleOf(2,3));
+    }
+    @Test
+    void findNextMultipleOf_ShouldReturn24_When2_23(){
+        var pg = new PrimeGenerator();
+        Assertions.assertEquals(24,pg.findNextMultipleOf(2,23));
+    }
+
+    @Test
+    void findNextMultipleOf_ShouldReturn22_When2_22(){
+        var pg = new PrimeGenerator();
+        Assertions.assertEquals(22,pg.findNextMultipleOf(2,22));
+    }
 }
