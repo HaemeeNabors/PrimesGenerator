@@ -58,18 +58,19 @@ public class PrimeGenerator implements PrimeNumberGenerator {
         return primes;
     }
 
+
     //Implementation
     /* Built for readability/expressiveness */
-    private boolean isDescending(int first, int second) {
+    public boolean isDescending(int first, int second) {
         return first > second;
     }
 
-    private boolean isLessThanFirstPrime(int integer) {
+    public boolean isLessThanFirstPrime(int integer) {
         return integer <= 1;
     }
 
     /* Fills list of initial primes to start Sieve */
-    private ArrayList<Integer> fillInitialPrimes(int end) {
+    public ArrayList<Integer> fillInitialPrimes(int end) {
         //Set flags for composites/primes
         boolean[] composites = new boolean[end + 1];
         for (int i = 2; (i * i) <= end; i++) {
@@ -89,7 +90,7 @@ public class PrimeGenerator implements PrimeNumberGenerator {
     }
 
     /* Used for filling out composite/prime flags in range */
-    private int findNextMultipleOf(int integer, int prev) {
+    public int findNextMultipleOf(int integer, int prev) {
         int firstMultiple = (prev / integer);
 
         if (firstMultiple <= 1)
